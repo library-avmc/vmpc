@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="AVMC Central Library — digital resources, services, research support, facilities and academic learning resources.">
+<title>AVMC Central Library | Knowledge • Discovery • Lifelong Learning</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+:root{
+ --navy:#071d49; --blue:#0b57d0; --sky:#2ca8ff; --gold:#f5b51b;
+ --orange:#ff7a18; --green:#12a86b; --ink:#13213c; --muted:#61708a;
+ --paper:#f6f9ff; --white:#fff; --line:#dce6f5; --shadow:0 20px 55px rgba(7,29,73,.12);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;font-family:"DM Sans",Arial,sans-serif;color:var(--ink);background:var(--paper)}
+a{text-decoration:none;color:inherit}.container{width:min(1180px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;font-size:13px}
+.topbar .container{display:flex;justify-content:space-between;gap:20px;padding:9px 0}
+nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.navin{display:flex;align-items:center;justify-content:space-between;min-height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.brandmark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,var(--blue),var(--sky));display:grid;place-items:center;color:white;font-size:20px}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:14px;font-weight:700}
+.navlinks a{padding:9px 0}.navlinks a:hover{color:var(--blue)}
+.menu{display:none;border:0;background:transparent;font-size:26px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(120deg,#061a43 0%,#0b57d0 55%,#27a8ff 100%);color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 30%),radial-gradient(circle at 10% 80%,rgba(245,181,27,.16),transparent 25%)}
+.hero .container{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;min-height:650px;padding:70px 0}
+.kicker{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700}
+h1{font-family:"Playfair Display",serif;font-size:clamp(46px,6vw,78px);line-height:.98;margin:20px 0 18px}
+.hero p{font-size:18px;line-height:1.7;max-width:650px;color:#e9f3ff}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border-radius:13px;font-weight:800;border:1px solid transparent}
+.btn.primary{background:var(--gold);color:#1c2740}.btn.secondary{border-color:rgba(255,255,255,.45);color:white;background:rgba(255,255,255,.08)}
+.hero-photo{border-radius:32px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.28);transform:rotate(2deg)}
+.hero-photo img{display:block;width:100%;height:510px;object-fit:cover}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.badge{background:rgba(255,255,255,.12);padding:9px 12px;border-radius:10px;font-size:12px}
+section{padding:82px 0}.section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:35px}
+.eyebrow{color:var(--blue);font-size:12px;text-transform:uppercase;letter-spacing:.18em;font-weight:900}
+h2{font-family:"Playfair Display",serif;font-size:clamp(32px,4vw,48px);margin:8px 0 0;color:var(--navy)}
+.lead{max-width:650px;color:var(--muted);line-height:1.7}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.stat{background:#fff;border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:var(--shadow)}
+.stat strong{display:block;font-size:31px;color:var(--blue);margin-bottom:6px}.stat span{color:var(--muted);font-size:14px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:24px;box-shadow:0 12px 35px rgba(7,29,73,.07);transition:.25s}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.icon{width:48px;height:48px;border-radius:14px;background:#eaf3ff;color:var(--blue);display:grid;place-items:center;font-size:22px;margin-bottom:16px}
+.card h3{margin:0 0 8px;font-size:18px}.card p{margin:0;color:var(--muted);line-height:1.6;font-size:14px}
+.feature{background:#fff;border-radius:28px;padding:30px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.digital{background:linear-gradient(135deg,#071d49,#0c5dd9);color:white}
+.digital .lead{color:#dbeaff}.digital h2{color:white}
+.digital-grid{display:grid;grid-template-columns:1fr 280px;gap:30px;align-items:center}
+.qrbox{background:white;border-radius:22px;padding:18px;text-align:center;color:var(--ink)}.qrbox img{width:190px;max-width:100%;display:block;margin:auto}.qrbox small{display:block;margin-top:10px;word-break:break-word}
+.resources{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+.resource{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);padding:14px;border-radius:14px;font-weight:700}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.time{background:#fff;border-left:5px solid var(--gold);border-radius:16px;padding:20px;border-top:1px solid var(--line);border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.time b{color:var(--blue);font-size:13px}.time h3{margin:8px 0 6px}.time p{margin:0;color:var(--muted);font-size:14px;line-height:1.5}
+.searchbox{display:flex;gap:10px;margin-bottom:18px}.searchbox input{flex:1;padding:15px 17px;border-radius:14px;border:1px solid var(--line);font:inherit}
+.tags{display:flex;flex-wrap:wrap;gap:9px}.tag{padding:9px 12px;background:#eef5ff;border-radius:999px;color:#174d9c;font-size:13px;font-weight:700}
+.rules{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rule{padding:15px;background:#fff;border:1px solid var(--line);border-radius:14px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}.contact .card{height:100%}
+footer{background:#061a43;color:#dce8fb;padding:45px 0}.footergrid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:30px}.footergrid h3{color:white}.footergrid p,.footergrid a{color:#b9c9e2;line-height:1.7;font-size:14px}
+.back{position:fixed;right:20px;bottom:20px;width:45px;height:45px;border-radius:50%;border:0;background:var(--gold);font-weight:900;cursor:pointer;box-shadow:var(--shadow)}
+@media(max-width:900px){.hero .container{grid-template-columns:1fr}.hero-photo{transform:none}.stats{grid-template-columns:repeat(2,1fr)}.grid,.timeline{grid-template-columns:repeat(2,1fr)}.digital-grid,.contact,.footergrid{grid-template-columns:1fr}.navlinks{display:none}.menu{display:block}}
+@media(max-width:600px){.topbar .container{flex-direction:column;gap:4px}.hero .container{padding:50px 0}.hero-photo img{height:360px}.stats,.grid,.timeline,.rules{grid-template-columns:1fr}.resources{grid-template-columns:1fr}.section-head{display:block}.navin{min-height:62px}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="container"><span>VINAYAKA MISSION'S PUDUCHERRY CAMPUS</span><span>Central Library • AVMC</span></div></div>
+
+<nav><div class="container navin">
+<a class="brand" href="#home"><span class="brandmark">📚</span><span>AVMC Central Library</span></a>
+<button class="menu" aria-label="Open menu" onclick="document.querySelector('.navlinks').classList.toggle('show')">☰</button>
+<div class="navlinks">
+<a href="#about">About</a><a href="#services">Services</a><a href="#digital">Digital Library</a><a href="#research">Research</a><a href="#resources">Resources</a><a href="#contact">Contact</a>
+</div></div></nav>
+
+<header id="home" class="hero">
+<div class="container">
+<div>
+<span class="kicker">● KNOW • LEARN • EXPLORE • GROW</span>
+<h1>Central Library</h1>
+<p>Your gateway to knowledge, discovery and lifelong learning at Aarupadai Veedu Medical College & Hospital.</p>
+<div class="cta"><a class="btn primary" href="#digital">Explore Digital Library →</a><a class="btn secondary" href="#resources">Explore Resources</a></div>
+<div class="badges"><span class="badge">17,000+ Volumes</span><span class="badge">5,365 Titles</span><span class="badge">45 Computer Nodes</span><span class="badge">500 Seating Capacity</span></div>
+</div>
+<div class="hero-photo"><img src="assets/campus-dome.jpg" alt="AVMC campus dome"></div>
+</div></header>
+
+<section id="about"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Library at a glance</div><h2>Built for academic excellence</h2></div><p class="lead">A modern medical academic library supporting learning, teaching, research and evidence-informed practice across the campus.</p></div>
+<div class="stats">
+<div class="stat"><strong>17,000+</strong><span>Total volumes</span></div><div class="stat"><strong>5,365</strong><span>Book titles</span></div><div class="stat"><strong>70+</strong><span>Indian print journals</span></div><div class="stat"><strong>30+</strong><span>International journals</span></div>
+<div class="stat"><strong>2,651</strong><span>Back volumes</span></div><div class="stat"><strong>850</strong><span>CDs / DVDs</span></div><div class="stat"><strong>45</strong><span>Computer nodes</span></div><div class="stat"><strong>1,665 m²</strong><span>Library area</span></div>
+</div>
+</div></section>
+
+<section id="services"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Student experience</div><h2>Facilities & services</h2></div><p class="lead">Technology-enabled spaces and responsive services designed around student and researcher needs.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">📖</div><h3>Reading Halls</h3><p>Spacious reading environments with a 500-seat capacity, including dedicated own-book reading space.</p></div>
+<div class="card"><div class="icon">💻</div><h3>E-Learning Centre</h3><p>45 computer nodes with campus-wide Wi-Fi for academic searching and digital learning.</p></div>
+<div class="card"><div class="icon">🔐</div><h3>RFID Services</h3><p>RFID gate detection, self check-in kiosk, automated book drop and smart-card services.</p></div>
+<div class="card"><div class="icon">🔎</div><h3>Web OPAC</h3><p>Search the library catalogue to discover books and other library holdings.</p></div>
+<div class="card"><div class="icon">🔗</div><h3>Interlibrary Loan</h3><p>Support for accessing documents and resources beyond the local collection.</p></div>
+<div class="card"><div class="icon">📰</div><h3>Current Awareness</h3><p>Stay informed about new resources, scholarly developments and relevant academic information.</p></div>
+<div class="card"><div class="icon">🖨️</div><h3>Reprographic Support</h3><p>Reprographic facilities to support academic and research requirements.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Remote Access</h3><p>Access subscribed digital resources through the VMRF Digital Library.</p></div>
+<div class="card"><div class="icon">📝</div><h3>Previous Year Questions</h3><p>Use the old question bank strategically for revision and examination preparation.</p></div>
+</div>
+</div></section>
+
+<section id="digital" class="digital"><div class="container">
+<div class="section-head"><div><div class="eyebrow" style="color:#8fd1ff">Anywhere access</div><h2>VMRF Digital Library</h2></div><p class="lead">A single gateway to subscribed databases and digital academic resources.</p></div>
+<div class="digital-grid">
+<div>
+<h3 style="font-size:26px">Learn beyond the library walls.</h3>
+<p style="line-height:1.8;color:#dbeaff">Use the VMRF Digital Library for remote access to e-books, e-journals, databases, video lectures, theses and other digital learning resources.</p>
+<div class="resources"><div class="resource">E-Books</div><div class="resource">E-Journals</div><div class="resource">Databases</div><div class="resource">Video Lectures</div><div class="resource">Theses</div><div class="resource">Online Resources</div></div>
+<div class="cta"><a class="btn primary" href="https://vmrf.refread.com/#/home" target="_blank" rel="noopener">Open VMRF Digital Library ↗</a></div>
+</div>
+<div class="qrbox"><img src="assets/vmrf-digital-library-qr.png" alt="VMRF Digital Library QR code"><b>Scan to access</b><small>vmrf.refread.com/#/home</small></div>
+</div></div></section>
+
+<section id="resources"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Academic resources</div><h2>Explore the collection</h2></div><p class="lead">Use the right resource for the right academic purpose.</p></div>
+<div class="searchbox"><input id="resourceSearch" placeholder="Search resources: textbook, journal, database, thesis..." oninput="filterResources()"></div>
+<div id="resourceGrid" class="grid">
+<div class="card resource-card" data-text="textbooks books core concepts medical"><div class="icon">📚</div><h3>Textbooks</h3><p>Build strong foundations and follow recommended reading for your programme.</p></div>
+<div class="card resource-card" data-text="reference books deeper learning anatomy physiology biochemistry"><div class="icon">📘</div><h3>Reference Books</h3><p>Go deeper when concepts require clarification, comparison or advanced reading.</p></div>
+<div class="card resource-card" data-text="print journals indian international current evidence"><div class="icon">🗞️</div><h3>Print Journals</h3><p>Indian and international journal collections for current scholarly literature.</p></div>
+<div class="card resource-card" data-text="proquest health research premium collection"><div class="icon">🔬</div><h3>ProQuest</h3><p>Health Research Premium Collection available through institutional access.</p></div>
+<div class="card resource-card" data-text="sage health collection journals"><div class="icon">📑</div><h3>SAGE</h3><p>Health Collection resources for scholarly reading and evidence discovery.</p></div>
+<div class="card resource-card" data-text="web of science research citation"><div class="icon">🕸️</div><h3>Web of Science</h3><p>Research discovery and citation-focused scholarly indexing.</p></div>
+<div class="card resource-card" data-text="scopus research literature citation"><div class="icon">📊</div><h3>Scopus</h3><p>Scholarly literature discovery, citation analysis and research exploration.</p></div>
+<div class="card resource-card" data-text="scival research performance analytics"><div class="icon">📈</div><h3>SciVal</h3><p>Research performance and collaboration analysis for institutional research support.</p></div>
+<div class="card resource-card" data-text="jstor archive journals research"><div class="icon">🗂️</div><h3>JSTOR</h3><p>Scholarly journals and archival research literature.</p></div>
+<div class="card resource-card" data-text="doaj open access journals"><div class="icon">🌍</div><h3>DOAJ</h3><p>Directory of open-access journals and scholarly content.</p></div>
+<div class="card resource-card" data-text="nptel courses online learning"><div class="icon">🎓</div><h3>NPTEL</h3><p>Online courses and learning resources from the NPTEL ecosystem.</p></div>
+<div class="card resource-card" data-text="inflibnet library network scholarly resources"><div class="icon">🏛️</div><h3>INFLIBNET</h3><p>National academic library network and information resources.</p></div>
+</div>
+</div></section>
+
+<section id="research"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Research support</div><h2>From search to evidence</h2></div><p class="lead">A practical information-literacy pathway for medical learners and researchers.</p></div>
+<div class="timeline">
+<div class="time"><b>01 · DEFINE</b><h3>Frame the question</h3><p>Clarify the topic, keywords, concepts and information need.</p></div>
+<div class="time"><b>02 · SEARCH</b><h3>Find quality evidence</h3><p>Search catalogues, databases, journals and trusted scholarly sources.</p></div>
+<div class="time"><b>03 · FILTER</b><h3>Refine the results</h3><p>Use filters, date, subject, study type and relevance to focus the set.</p></div>
+<div class="time"><b>04 · EVALUATE</b><h3>Check credibility</h3><p>Assess authority, methodology, currency, relevance and evidence quality.</p></div>
+<div class="time"><b>05 · ORGANIZE</b><h3>Build your evidence set</h3><p>Save useful articles, notes, citations and research leads systematically.</p></div>
+<div class="time"><b>06 · CITE</b><h3>Give credit</h3><p>Use an appropriate citation style and keep source details complete.</p></div>
+</div>
+</div></section>
+
+<section><div class="container">
+<div class="section-head"><div><div class="eyebrow">Know your library</div><h2>Smart study choices</h2></div><p class="lead">Match the resource to the learning task.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">📚</div><h3>Textbook → Concepts</h3><p>Start with the core text to establish a reliable conceptual foundation.</p></div>
+<div class="card"><div class="icon">📰</div><h3>Journal → Evidence</h3><p>Use current scholarly literature to update your understanding.</p></div>
+<div class="card"><div class="icon">📝</div><h3>Question Paper → Revision</h3><p>Use previous questions to identify patterns and strengthen revision.</p></div>
+<div class="card"><div class="icon">🔬</div><h3>Reference → Depth</h3><p>Move to reference sources when you need deeper or comparative understanding.</p></div>
+<div class="card"><div class="icon">💡</div><h3>Lecture + Practical</h3><p>Connect classroom teaching with practical learning and library resources.</p></div>
+<div class="card"><div class="icon">🌐</div><h3>Digital Source → Access</h3><p>Use institutional digital resources for convenient off-campus scholarly access.</p></div>
+</div>
+</div></section>
+
+<section><div class="container">
+<div class="section-head"><div><div class="eyebrow">Opening hours</div><h2>Plan your library time</h2></div><p class="lead">Please follow the latest official library notice for temporary changes.</p></div>
+<div class="grid">
+<div class="card"><div class="icon">🕗</div><h3>Working Days</h3><p><b>8:00 AM – 8:00 PM</b><br>Monday – Friday</p></div>
+<div class="card"><div class="icon">🗓️</div><h3>Saturday & Sunday</h3><p><b>9:00 AM – 5:00 PM</b><br>Non-working days</p></div>
+<div class="card"><div class="icon">🤫</div><h3>Study Environment</h3><p>Maintain silence, respect other learners and keep study areas clean.</p></div>
+</div>
+</div></section>
+
+<section><div class="container">
+<div class="section-head"><div><div class="eyebrow">Library rules</div><h2>Learn responsibly</h2></div></div>
+<div class="rules">
+<div class="rule">🪪 Carry a valid ID / library card.</div><div class="rule">🔇 Keep phones silent and maintain silence.</div>
+<div class="rule">📚 Handle books and equipment carefully.</div><div class="rule">⏱️ Return borrowed materials on time.</div>
+<div class="rule">🧹 Keep reading and computer areas clean.</div><div class="rule">🤝 Respect fellow learners and staff.</div>
+<div class="rule">🌐 Use digital resources responsibly.</div><div class="rule">🔐 Follow institutional access conditions.</div>
+</div>
+</div></section>
+
+<section id="contact"><div class="container">
+<div class="section-head"><div><div class="eyebrow">Need help?</div><h2>Ask the Librarian</h2></div><p class="lead">For resource discovery, research support, digital access and library services.</p></div>
+<div class="contact">
+<div class="card"><div class="icon">👤</div><h3>Chief Librarian</h3><p><b>Saravanakumaran S</b><br><br>📧 <a href="mailto:library@avmc.edu.in">library@avmc.edu.in</a><br>☎ 0413-2611245 · Library Ext. 231<br>📱 8667080240</p></div>
+<div class="card"><div class="icon">📍</div><h3>Central Library — AVMC</h3><p>Aarupadai Veedu Medical College & Hospital<br>Vinayaka Mission's Puducherry Campus<br>Puducherry – 607 403<br><br><a href="https://www.avmc.edu.in/resources/library" target="_blank" rel="noopener"><b>AVMC Library webpage ↗</b></a></p></div>
+</div>
+</div></section>
+
+<footer><div class="container footergrid">
+<div><h3>AVMC Central Library</h3><p>Knowledge • Discovery • Lifelong Learning</p><p>Supporting academic learning, teaching and research across the campus.</p></div>
+<div><h3>Quick Links</h3><p><a href="https://vmrf.refread.com/#/home" target="_blank">VMRF Digital Library ↗</a><br><a href="https://www.avmc.edu.in/resources/library" target="_blank">AVMC Library ↗</a><br><a href="https://nptel.ac.in/" target="_blank">NPTEL ↗</a><br><a href="https://doaj.org/" target="_blank">DOAJ ↗</a></p></div>
+<div><h3>Explore</h3><p><a href="#services">Facilities & Services</a><br><a href="#resources">Resources</a><br><a href="#research">Research Support</a><br><a href="#contact">Contact</a></p></div>
+</div></footer>
+<button class="back" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+function filterResources(){
+ const q=document.getElementById('resourceSearch').value.toLowerCase().trim();
+ document.querySelectorAll('.resource-card').forEach(card=>{
+   card.style.display=card.dataset.text.includes(q)||!q?'block':'none';
+ });
+}
+</script>
+</body>
+</html>
